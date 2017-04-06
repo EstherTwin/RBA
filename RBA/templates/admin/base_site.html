@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | KENYA AIRWAYS BAY ASSIGNMENT {% endblock %}
+
+{% block extrastyle %}
+<style>
+#header{
+   background-color: #000;
+}
+
+body {
+background: #269dd8;
+}
+
+#content-related {
+    float: right;
+    width: 300px;
+    position: relative;
+    margin-right: -350px;
+    margin-top: 32px;
+    height: auto;
+}
+
+#content-main {
+    
+    width: 800px;
+}
+
+div.breadcrumbs {
+    background: #d1180a;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #fbfbfb;
+}
+
+.module h2, .module caption, .inline-group h2{
+    background: #269dd8;
+}
+input[type="submit"], input[type="button"] {
+   background-color: #f53628;
+}
+body.login {
+    background: #3490b4;
+}
+
+</style>
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">KENYA AIRWAYS </a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
