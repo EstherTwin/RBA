@@ -1,8 +1,33 @@
+from django.contrib.auth import(
+	authenticate,
+	get_user_model,
+	login,
+	logout,
+	)
 from django.shortcuts import render
+from .forms import UserLoginForm
 
 # Create your views here.
+
+def login_view(request):
+	title ="Login"
+	form = UserLoginForm(request.POST or None)
+	if form.is_valid():
+	   username = form.cleaned_data.get("username")
+	   password = form.cleaned_data.get("password")
+	   user = authenticate(username=username, password=password)
+	   login(request, user)
+	   #return redirect('path')
+	return render(request, 'form.html')
+
+def logout_view(request):
+	return render(request, 'form.html', {"form": form, "title": title})
+
 def home(request):
-	return render(request, 'home.html')
+	return render(request, 'homepage.html')
 
 def schedule(request):
-	return render(request, 'schedule.html')
+	return render(request, 'BayA.html')
+
+def index(request):
+	return render(request, 'index2.html')

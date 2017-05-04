@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '42@*m0i=!=t=*c(x!^h&_bgbe79x#d96i3waljw*3a199lmg1b'
+SECRET_KEY = 'yiq$7(2^o+7git+e62n68#c%ah994$9mr!p8+hop@e_&5&%rz6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -69,6 +69,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'RBA.wsgi.application'
+
+STATIC_URL= '/static/'
+
+STATIC_ROOT =os.path.join(BASE_DIR, 'static', 'static_root')
+
+STATICFILES_DIRS = (
+os.path.join(BASE_DIR, 'static', 'static_dirs'),
+)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+
+MEDIA_URL= '/media/'
 
 
 # Database

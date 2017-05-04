@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load staticfiles %}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>KENYA AIRWAYS</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+<script type="text/javascript" src="{% static 'js/clockp.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/clockh.js'%}"></script> 
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/ddaccordion.js' %}"></script>
+<script type="text/javascript">
+
+ddaccordion.init({
+	headerclass: "submenuheader", //Shared CSS class name of headers group
+	contentclass: "submenu", //Shared CSS class name of contents group
+	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["suffix", "<img src='{% static 'img/plus.gif' %}' class='statusicon' />", "<img src='{% static 'img/minus.png' %}' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+</script>
+
+<script type="text/javascript" src="{% static 'js/jconfirmaction.jquery.js' %}"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+		$('.ask').jConfirmAction();
+	});
+	
+</script>
+
+<script language="javascript" type="text/javascript" src="{% static 'js/niceforms.js' %}"></script>
+<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/niceforms-default.css' %}" />
+
+</head>
+<body>
+<div id="main_container">
+
+	<div class="header">
+    <div class="logo"><a href="#"><img src="{% static 'img/logo.png' %}" alt="" title="" border="0" /></a></div>
+    
+    <div class="right_header">Welcome, <a href="#">See More</a> | <a href="#" class="logout">Logout</a></div>
+    <div id="clock_a"></div>
+    </div>
+    
+    <div class="main_content">
+    
+                    <div class="menu">
+                    <ul>
+                    <li><a class="current" href="index2.html">Home</a></li>
+                    <li><a href="schedule/">Schedule<!--[if IE 7]><!--></a><!--<![endif]-->
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                        <ul>
+                        <li><a href="" title="">1</a></li>
+                        <li><a href="" title="">2</a></li>
+                        <li><a href="" title="">3</a></li>
+                        <li><a href="" title="">4t</a></li>
+                        <li><a href="" title="">Lorem ipsum dolor sit amet</a></li>
+                        </ul>
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    
+                    <li><a href="">Gallery</a></li>
+                    <li><a href="">Contact</a></li>
+                    </ul>
+                    </div> 
+                    
+                    
+                    
+                    
+    <div class="center_content">  
+    
+    
+  
+    
+    <div class="right_content">            
+        
+    <h2>Allocations</h2> 
+                    
+                    
+<table id="rounded-corner" summary="2007 Major IT Companies' Profit">
+    <thead>
+    	<tr>
+        	<th scope="col" class="rounded-company"></th>
+            <th scope="col" class="rounded">Flight No</th>
+            <th scope="col" class="rounded">Aircraft ID</th>
+            <th scope="col" class="rounded">Actual Arrival Time</th>
+	    <th scope="col" class="rounded">Departure Time</th>
+            <th scope="col" class="rounded">Date</th>
+	    <th scope="col" class="rounded">Bay_id</th>
+	    <th scope="col" class="rounded">Start Time</th>
+	    <th scope="col" class="rounded">End Time</th>
+            <th scope="col" class="rounded">Edit</th>
+            <th scope="col" class="rounded-q4">Delete</th>
+        </tr>
+    </thead>
+        <tfoot>
+    	<tr>
+        	<td colspan="6" class="rounded-foot-left"><em>Optimized allocations</em></td>
+        	<td class="rounded-foot-right">&nbsp;</td>
+
+        </tr>
+    </tfoot>
+    <tbody>
+    	<tr>
+        	<td><input type="checkbox" name="" /></td>
+            <td>123</td>
+            <td>KQ120</td>
+            <td>12.00 am</td>
+	    <td>12.40 am</td>
+	    <td>20</td>
+            <td>12.01 am</td>
+	    <td>12.40 am</td>
+            <td>12/04/2017</td>
+
+            <td><a href="#"><img src="{% static 'img/user_edit.png' %}" alt="" title="" border="0" /></a></td>
+            <td><a href="#" class="ask"><img src="{% static 'img/trash.png' %}" alt="" title="" border="0" /></a></td>
+        </tr>
+        
+    	<tr>
+        	<td><input type="checkbox" name="" /></td>
+            <td>345</td>
+            <td>KQ121</td>
+            <td>1.00pm</td>
+	    <td>1.40pm</td>
+            <td>21</td>
+            <td>1.05pm</td>
+	    <td>1.40pm</td>
+            <td>12/04/2017</td>
+
+            <td><a href="#"><img src="{% static 'img/user_edit.png' %}" alt="" title="" border="0" /></a></td>
+            <td><a href="#" class="ask"><img src="{% static 'img/trash.png' %}" alt="" title="" border="0" /></a></td>
+        </tr> 
+        
+    	<tr>
+        	<td><input type="checkbox" name="" /></td>
+            <td>456</td>
+            <td>KQ122</td>
+            <td>12.30 am</td>
+	    <td>1.10 am</td>
+            <td>10</td>
+            <td>12.32 am</td>
+	    <td>1.10 am</td>
+            <td>12/04/2017</td>
+
+            <td><a href="#"><img src="{% static 'img/user_edit.png' %}" alt="" title="" border="0" /></a></td>
+            <td><a href="#" class="ask"><img src="{% static 'img/trash.png' %}" alt="" title="" border="0" /></a></td>
+        </tr>
+        
+    	<tr>
+        	<td><input type="checkbox" name="" /></td>
+            <td>898</td>
+            <td>KQ125</td>
+            <td>2.00pm</td>
+	    <td>3.00pm</td>
+            <td>11</td>
+            <td>2.03pm</td>
+	    <td>3.00pm</td>
+            <td>12/04/2017</td>
+            <td><a href="#"><img src="{% static 'img/user_edit.png' %}" alt="" title="" border="0" /></a></td>
+            <td><a href="#" class="ask"><img src="{% static 'img/trash.png' %}" alt="" title="" border="0" /></a></td>
+        </tr>  
+    	<tr>
+        	<td><input type="checkbox" name="" /></td>
+            <td>156</td>
+            <td>KQ189</td>
+            <td>2.30 pm</td>
+	    <td>3.10 pm</td>
+            <td>25</td>
+            <td>2.33 pm</td>
+	    <td>3.10 pm</td>
+            <td>12/04/2017</td>
+
+            <td><a href="#"><img src="{% static 'img/user_edit.png' %}" alt="" title="" border="0" /></a></td>
+            <td><a href="#" class="ask"><img src="{% static 'img/trash.png' %}" alt="" title="" border="0" /></a></td>
+        </tr>
+        
+    	<tr>
+        	<td><input type="checkbox" name="" /></td>
+             <td>567</td>
+            <td>KQ348</td>
+            <td>7.00 am</td>
+	    <td>7.50 am</td>
+            <td>8</td>
+            <td>7.03 am</td>
+	    <td>7.50 am</td>
+            <td>12/04/2017</td>
+
+            <td><a href="#"><img src="{% static 'img/user_edit.png' %}" alt="" title="" border="0" /></a></td>
+            <td><a href="#" class="ask"><img src="{% static 'img/trash.png' %}" alt="" title="" border="0" /></a></td>
+        </tr>    
+        
+    </tbody>
+</table>
+
+        
+         <div class="form">
+         <form action="" method="post" class="niceform">
+         
+                
+                
+         </form>
+         </div>  
+      
+     
+     </div><!-- end of right content-->
+            
+                    
+  </div>   <!--end of center content -->               
+                    
+                    
+    
+    
+    <div class="clear"></div>
+    </div> <!--end of main content-->
+	
+    
+    <div class="footer">
+    
+    	<div class="left_footer">KENYA AIRWAYS <a href="http://indeziner.com">BAY ASSIGNMENT</a></div>
+    	<div class="right_footer"><a href="#"><img src="{% static 'img/logo.png' %}" alt="" title="" border="0" /></a></div>
+    
+    </div>
+
+</div>		
+</body>
+</html>

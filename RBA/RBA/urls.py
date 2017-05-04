@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from BaysApp import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home),
+    url(r'^$', views.index),
     url(r'^schedule/', views.schedule),
+    url(r'^index/', views.index), 
 ]
