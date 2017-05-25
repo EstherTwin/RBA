@@ -50,8 +50,8 @@ class Schedule(models.Model):
 		return u'%s %s' % (self.flight_id, self.Aircraft_id)
 
 class BayAllocation(models.Model):
-	Bay_id = models.ForeignKey(Bay,default="1")
-	schedule_id= models.ForeignKey(Schedule)
+	Bay_id = models.CharField(max_length=30, default="1A")
+	FlightNo= models.CharField(max_length=30, default="KQ3EA")
 	StartTime = models.CharField(max_length=30)
 	EndTime= models.CharField(max_length=40)
 	Date = models.DateTimeField(default=datetime.now, blank=True)

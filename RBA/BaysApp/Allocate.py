@@ -4,17 +4,19 @@ import cplex
 
 
 c = db.Database().conn()
-bid=1
-strTag='KQ121'
-firstid=1
-AType_id=4
+global Btype, ATag, Aid, AType
+Btype_id=3
+ATag='KQ125'
+Aid=4
+AType_id=2
 
 flightdata = list(dbfunctions.fetchSchedule(c))
 baydata = list(dbfunctions.fetchAllBays(c))
 Adata = list(dbfunctions.fetchAllAircraft(c))
-B_type = list(dbfunctions.SelectWBayType(c, bid))
-A_type = list(dbfunctions.SelectWAircraftType(c, strTag))
-FAid_type = list(dbfunctions.SelectWAircraftType(c, firstid))
+A_type = list(dbfunctions.SelectWAircraftType(c, ATag))
+FAid_type = list(dbfunctions.SelectWAircraftNo(c, Aid))
+
+
 
 #print(data)
 #print("The Scheduled flights are:")
@@ -25,11 +27,27 @@ FAid_type = list(dbfunctions.SelectWAircraftType(c, firstid))
 
 print ("The Aircrafts/Tag are:")
 for record in Adata:
+    #global Aid
     Aid = record[0]
+    #global ATag
     ATag = record[1]
     Atype_id = record[2]
 
-    print(ATag, '/', Atype_id)
+    print(ATag, Aid)
+
+for record in baydata:
+    bay_id = record[0]
+    bay_Tag = record[1]
+    #global Btype_id
+    Btype_id = record[2]
+    print("This is the Bid", Btype_id)
+
+ATag=[]
+for record in FAid_type:
+    FATag = record[0]
+    ATag.append(FATag)
+
+    print("Recently Added", ATag)
 
 #def dump_queue(Queue):
     #queue_list = []
@@ -43,7 +61,7 @@ for record in Adata:
 #q = Queue()
 #for record in flightdata(q.get,'STOP'):
     #q.put(record)
-
+B_type = list(dbfunctions.SelectWBayType(c, Btype_id))
 #print (q.queue)
 for record in B_type:
     Tag = record[0]
@@ -52,6 +70,8 @@ for record in B_type:
 
 Bays=Tag
 
+
+
 def Allocate():
     model = cplex.Cplex()
     model.objective.set_sense(model.objective.sense.maximize)
@@ -59,8 +79,10 @@ def Allocate():
     model.variables.get_names()
     #for record in FAid_type:
         #FATag = record[0]
+    global Btype, ATag, Aid, AType
 
-    print("Check this")
+    print("Scheuled flights......")
+    Aid= []
     for record in flightdata:
         fid = record[0]
         flight_No = record[6]
@@ -69,40 +91,44 @@ def Allocate():
         ADT = record[1]
         MPD = record[3]
         Date = record[4]
-        print(flight_No, aircraft_id, AAT, ADT, MPD, Date)
+        Aid.append(aircraft_id)
+        print (Aid)
+        #print(flight_No, aircraft_id, AAT, ADT, MPD, Date)
         #get aircraft tag using the aircraft id
-    for record in FAid_type:
-        FATag = record[0]
-
-        print(FATag)
+    
          #get the aircraft type using the tag
     for record in A_type:
         global AType_id 
         AType_id = record[0]
 
-        print(AType_id)
+        print("Used Atype",AType_id)
+        #AType_id=3
 	#check if the aircraft type id is null
         if AType_id>0:
-            print("Not null" )
-
+            print("Loading....." )
+            #print(ATag, Aid, Btype_id)
 		#where Bay type is 1=2
-            print(AType_id)
+            print("The AType is ..", AType_id)
 	#if the aircraft id =1 then that means its a wide body and can only be parked in an 
 	#enclosed bay, so we print Bays Availabe where bay type is 1
             if AType_id==1:
                 for record in B_type:
                     Tag = record[0]
 		#where Bay type is 1
+                    #print("One")
                     print(Tag)
+                    #print(ATag, Aid, Btype_id)
             elif AType_id==2:
                 for record in B_type:
                     Tag = record[0]
 		#where Bay type is 2 or 3
-                    print(Tag)
+                    print("two")
+                    #print(Tag)
             elif AType_id==3:
                 for record in B_type:
                     Tag = record[0]
 		#where Bay type is 2 or 3
+                    print("Three")
                     print(Tag)
             else:
                 print('That Bay does not exist')

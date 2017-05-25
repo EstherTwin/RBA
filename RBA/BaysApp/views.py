@@ -6,7 +6,7 @@ from django.contrib.auth import(
 	)
 from django.shortcuts import render
 from .forms import UserLoginForm
-from BaysApp.models import Schedule
+from BaysApp.models import Schedule,BayAllocation
 
 from django.contrib.auth.decorators import login_required
 
@@ -30,7 +30,8 @@ def home(request):
 	return render(request, 'homepage.html')
 
 def schedule(request):
-	return render(request, 'BayA.html')
+	data = BayAllocation.objects.all()
+	return render(request, 'BayA.html', {"data" : data})
 def load(request):
 	return render(request, 'load.html')
 #@login_required

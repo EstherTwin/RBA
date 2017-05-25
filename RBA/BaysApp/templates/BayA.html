@@ -92,10 +92,7 @@ ddaccordion.init({
     	<tr>
         	<th scope="col" class="rounded-company"></th>
             <th scope="col" class="rounded">Flight No</th>
-            <th scope="col" class="rounded">Aircraft ID</th>
-            <th scope="col" class="rounded">Actual Arrival Time</th>
-	    <th scope="col" class="rounded">Departure Time</th>
-            <th scope="col" class="rounded">Bay_id</th>
+            <th scope="col" class="rounded">Bay</th>
 	    <th scope="col" class="rounded">Start Time</th>
 	    <th scope="col" class="rounded">End Time</th>
 	    <th scope="col" class="rounded">Date</th>
@@ -109,81 +106,18 @@ ddaccordion.init({
         </tr>
     </tfoot>
     <tbody>
+    {% for schedule in data %}
     	<tr>
         	<td><input type="checkbox" name="" /></td>
-            <td>KQ600</td>
-            <td>KQ120</td>
-            <td>12.00 am</td>
-	    <td>12.40 am</td>
-	    <td>20</td>
-            <td>12.01 am</td>
-	    <td>12.40 am</td>
-            <td>12/04/2017</td>
+            <td>{{schedule.FlightNo}}</td>
+            <td>{{schedule.Bay_id}}</td>
+            <td>{{schedule.StartTime}}</td>
+	    <td>{{schedule.EndTime}}</td>
+	    <td>{{schedule.Date}}</td>
 
-        </tr>
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>KQ650</td>
-            <td>KQ121</td>
-            <td>1.00pm</td>
-	    <td>1.40pm</td>
-            <td>21</td>
-            <td>1.05pm</td>
-	    <td>1.40pm</td>
-            <td>12/04/2017</td>
-
-        </tr> 
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>KQ500</td>
-            <td>KQ122</td>
-            <td>12.30 am</td>
-	    <td>1.10 am</td>
-            <td>10</td>
-            <td>12.32 am</td>
-	    <td>1.10 am</td>
-            <td>12/04/2017</td>
-
-        </tr>
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>KQ700</td>
-            <td>KQ125</td>
-            <td>2.00pm</td>
-	    <td>3.00pm</td>
-            <td>11</td>
-            <td>2.03pm</td>
-	    <td>3.00pm</td>
-            <td>12/04/2017</td>
-        </tr>  
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>KQ500</td>
-            <td>KQ189</td>
-            <td>2.30 pm</td>
-	    <td>3.10 pm</td>
-            <td>25</td>
-            <td>2.33 pm</td>
-	    <td>3.10 pm</td>
-            <td>12/04/2017</td>
-
-        </tr>
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-             <td>KQ650</td>
-            <td>KQ348</td>
-            <td>7.00 am</td>
-	    <td>7.50 am</td>
-            <td>8</td>
-            <td>7.03 am</td>
-	    <td>7.50 am</td>
-            <td>12/04/2017</td>
-
-        </tr>    
+      </tr>
+    
+    {% endfor%}  
         
     </tbody>
 </table>
