@@ -87,8 +87,8 @@ MEDIA_URL= '/media/'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'tecnolab',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mydb',
 	'USER': 'root',
 	'PASSWORD': 'essypass',
 	'HOST': 'localhost',

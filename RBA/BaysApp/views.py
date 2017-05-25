@@ -6,6 +6,9 @@ from django.contrib.auth import(
 	)
 from django.shortcuts import render
 from .forms import UserLoginForm
+from BaysApp.models import Schedule
+
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -28,6 +31,9 @@ def home(request):
 
 def schedule(request):
 	return render(request, 'BayA.html')
-
+def load(request):
+	return render(request, 'load.html')
+#@login_required
 def index(request):
-	return render(request, 'index2.html')
+	data = Schedule.objects.all()
+	return render(request, 'index2.html', {"data" : data})
