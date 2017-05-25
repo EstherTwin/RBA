@@ -3,7 +3,7 @@ import db
 def fetchSchedule(conn):
     cursor = conn.cursor()
     
-    cursor.execute("SELECT * FROM BaysApp_schedule ORDER BY ActualAtime")
+    cursor.execute("SELECT * FROM BaysApp_schedule ORDER BY ActualDtime")
     return cursor.fetchall()
 
 def fetchFlight(conn):
@@ -33,15 +33,15 @@ def fetchAllAircraft(conn):
 def SelectWBayType(conn, bid):
     cursor = conn.cursor()
     
-    sql = ("SELECT * FROM BaysApp_bay WHERE Bay_type_id_id = %d")
+    sql = ("SELECT Bay_Tag FROM BaysApp_bay WHERE Bay_type_id_id = %d")
     cursor.execute(sql %(bid))
     return cursor.fetchall()
 
-def SelectWAircraftType(conn, aid):
+def SelectWAircraftType(conn, strTag):
     cursor = conn.cursor()
     
-    sql = ("SELECT Tag FROM BaysApp_aircraft WHERE Type_id_id = %d")
-    cursor.execute(sql %(aid))
+    sql = ("SELECT Type_id_id FROM BaysApp_aircraft WHERE Tag = '%s'")
+    cursor.execute(sql %(strTag))
     return cursor.fetchall()
 
 def SelectWAircraftNo(conn, firstid):
